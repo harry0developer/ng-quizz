@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="main-content">
+    <mat-card class="content">
+        <h1 class="main-title">Generate Interactive Quizz</h1>
+
+        <h2 class="step-title">Step 1: Choose a question type:</h2>
+
+        <mat-radio-group class="question-type" [(ngModel)]="questionType">
+            <mat-radio-button value="short">Short Questions</mat-radio-button>
+            <mat-radio-button value="mcq">Muliple Choice Questions</mat-radio-button>
+            <mat-radio-button value="true/false">True/False Questions</mat-radio-button>
+            <mat-radio-button value="dragdrop">Drag & Drop Questions</mat-radio-button>
+        </mat-radio-group>
+
+
+        <div class="questions">
+            <div *ngIf="questionType === 'short'">
+                <p>Showing short questions</p>
+            </div>
+
+            <div *ngIf="questionType === 'mcq'">
+                <p>Showing mcq questions</p>
+            </div>
+
+            <div *ngIf="questionType === 'true/false'">
+                <app-true-false-quiz [questionType]="questionType"></app-true-false-quiz>
+                <template #trueFalseContainer>
+                </template>
+            </div>
+
+            <div *ngIf="questionType === 'dragdrop'">
+                <p>Showing dragdrop questions</p>
+            </div>
+
+            <div class="controls" *ngIf="questionType">
+                <button mat-raised-button (click)="createComponent(questionType)" color="primary">Add more</button>
+            </div>
+        </div>
+    </mat-card>
+
+    <button mat-raised-button (click)="generateQuiz()" class="generate" color="primary">Generate</button>
+</div>

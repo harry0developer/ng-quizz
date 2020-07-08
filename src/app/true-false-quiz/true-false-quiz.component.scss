@@ -1,0 +1,21 @@
+.single-question {
+    mat-radio-button {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+mat-form-field.question {
+    width: 100%;
+}
+
+button.remove {
+    float: right;
+    margin-left: 10px;
+}
+
+.quiz {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+}

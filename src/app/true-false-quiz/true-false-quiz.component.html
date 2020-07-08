@@ -1,0 +1,14 @@
+<div *ngIf="questionType === 'true/false'" class="quiz">
+
+    <mat-form-field class="question">
+        <mat-label>Type a question</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+
+    <mat-radio-group class="single-question" [(ngModel)]="singleQuestion">
+        <mat-radio-button value="true">True</mat-radio-button>
+        <mat-radio-button value="false">False</mat-radio-button>
+    </mat-radio-group>
+
+    <button mat-raised-button class="remove" color="warn" (click)="removeComponent()">Remove</button>
+</div>
